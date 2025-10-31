@@ -1,25 +1,32 @@
 # Menu 11 Next
 
-## Windows 11 menu launcher for KDE Plasma 6
-Based on [menu 11 plasma6,](https://github.com/adhec/OnzeMenuKDE), with some tweaks & modifications to make it fully working with the most recent kde plasma.
-Small design tweaks (moure rounded search bar, no blue underline, light gray background hover app select / buttons)
+Configurable grid of application icons for KDE Plasma 6.
 
+## Plasma 6 Compatibility
 
-## Features
-- Search bar auto select first result / press enter to start.
-- Custom menu position
-- Favorite / Pinned applications
-- Recent documents
-- View more recent document opens recentlyused:/files/
-- Shutdown / Restart / Sleep / Lock on bottom right
-- User profile / home folder / settings on bottom left
+This fork includes fixes for Plasma 6 and Qt6 compatibility, specifically addressing the October 2025 Arch Linux updates.
 
-## Fixed
-- Arrows UP & DOWN navigation in search results
-- 0 width error on first start
-- shutdown / restart buttons
+### Changes
 
-## Screenshot
-![Screenshot 1](https://eisteed.com/linux/menu-11-next/Win11-Next-Demo1.png)
+- Removed deprecated module imports
+- Updated all imports to versionless format
+- Fixed enum references for PlasmaCore.Types
+- Added missing Logic component
+- Corrected layout implementation
+- Removed undefined references
 
-![Screenshot 2](https://eisteed.com/linux/menu-11-next/Win11-Next-Demo2.png)
+## Installation
+
+```bash
+kpackagetool6 --type=Plasma/Applet --install .
+```
+
+Or copy to `~/.local/share/plasma/plasmoids/menu.11.next/`
+
+## Credits
+
+Original: Eisteed
+
+## License
+
+GPL-2.0+

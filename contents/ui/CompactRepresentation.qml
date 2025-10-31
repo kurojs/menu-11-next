@@ -21,7 +21,7 @@ import QtQuick 2.0
 import QtQuick.Layouts 1.1
 
 import org.kde.plasma.plasmoid
-import org.kde.plasma.core 2.0 as PlasmaCore
+import org.kde.plasma.core as PlasmaCore
 import org.kde.kirigami as Kirigami
 
 Item {
@@ -56,14 +56,18 @@ Item {
         hoverEnabled: true
 
         onClicked: {
-            dashWindow.visible = !dashWindow.visible;
+            if (dashWindow) {
+                dashWindow.visible = !dashWindow.visible;
+            }
         }
     }
 
     Component.onCompleted: {
         dashWindow = Qt.createQmlObject("MenuRepresentation {}", root);
         plasmoid.activated.connect(function() {
-            dashWindow.visible = !dashWindow.visible;
+            if (dashWindow) {
+                dashWindow.visible = !dashWindow.visible;
+            }
         });
     }
 }

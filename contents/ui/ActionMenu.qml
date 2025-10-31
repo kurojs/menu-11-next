@@ -7,7 +7,7 @@
 
 import QtQuick 2.15
 
-import org.kde.plasma.extras 2.0 as PlasmaExtras
+import org.kde.plasma.extras as PlasmaExtras
 
 Item {
     id: root

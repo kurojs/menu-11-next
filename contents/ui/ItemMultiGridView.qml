@@ -6,10 +6,10 @@ SPDX-License-Identifier: GPL-2.0-or-later
 
 import QtQuick
 
-import org.kde.ksvg 1.0 as KSvg
+import org.kde.ksvg as KSvg
 import org.kde.plasma.components as PlasmaComponents
-import org.kde.plasma.extras 2.0 as PlasmaExtras
-import org.kde.kirigami 2.20 as Kirigami
+import org.kde.plasma.extras as PlasmaExtras
+import org.kde.kirigami as Kirigami
 import org.kde.plasma.private.kicker 0.1 as Kicker
 import org.kde.plasma.plasmoid
 
@@ -245,14 +245,6 @@ PlasmaComponents.ScrollView {
                         }
                     }
                 }
-            }
-
-            // HACK: Steal wheel events from the nested grid view and forward them to
-            // the ScrollView's internal WheelArea.
-            Kicker.WheelInterceptor {
-                anchors.fill: gridView
-                z: 1
-                destination: findWheelArea(itemMultiGrid)
             }
         }
     }

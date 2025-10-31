@@ -26,8 +26,8 @@ import org.kde.plasma.core as PlasmaCore
 import org.kde.plasma.components as PC3
 import org.kde.plasma.extras as PlasmaExtras
 import org.kde.plasma.private.kicker 0.1 as Kicker
-import org.kde.kquickcontrolsaddons 2.0
-import org.kde.plasma.private.quicklaunch 1.0
+import org.kde.kquickcontrolsaddons
+
 import org.kde.kirigami as Kirigami
 import org.kde.plasma.plasma5support as Plasma5Support
 

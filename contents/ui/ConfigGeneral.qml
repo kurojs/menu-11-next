@@ -21,22 +21,22 @@
 //import QtQuick.Controls 2.15
 //import QtQuick.Dialogs 1.2
 //import QtQuick.Layouts 1.0
-//import org.kde.plasma.core 2.0 as PlasmaCore
+//import org.kde.plasma.core as PlasmaCore
 //import org.kde.plasma.components 2.0 as PlasmaComponents
-//import org.kde.kquickcontrolsaddons 2.0 as KQuickAddons
-//import org.kde.draganddrop 2.0 as DragDrop
-//import org.kde.kirigami 2.4 as Kirigami
+//import org.kde.kquickcontrolsaddons as KQuickAddons
+//import org.kde.draganddrop as DragDrop
+//import org.kde.kirigami as Kirigami
 
 import QtQuick 2.15
 import QtQuick.Layouts 1.0
 import QtQuick.Controls 2.15
-import org.kde.draganddrop 2.0 as DragDrop
-import org.kde.kirigami 2.5 as Kirigami
+import org.kde.draganddrop as DragDrop
+import org.kde.kirigami as Kirigami
 import org.kde.iconthemes as KIconThemes
 import org.kde.plasma.core as PlasmaCore
-import org.kde.kirigami 2.20 as Kirigami
-import org.kde.ksvg 1.0 as KSvg
-import org.kde.plasma.plasmoid 2.0
+import org.kde.kirigami as Kirigami
+import org.kde.ksvg as KSvg
+import org.kde.plasma.plasmoid
 import org.kde.kcmutils as KCM
 
 
