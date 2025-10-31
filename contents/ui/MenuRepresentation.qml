@@ -33,7 +33,7 @@ import org.kde.plasma.plasma5support as Plasma5Support
 
 PlasmaCore.Dialog {
     id: root
-    backgroundHints: PlasmaCore.Types.NoBackground
+    backgroundHints: PlasmaCore.Types.SolidBackground
     objectName: "popupWindow"
     flags: Qt.WindowStaysOnTopHint
     location: {
@@ -189,15 +189,6 @@ PlasmaCore.Dialog {
 
     mainItem: FocusScope {
         id: rootItem
-        Rectangle {
-            id: dialogBackground
-            anchors.fill: parent
-            color: Kirigami.Theme.backgroundColor
-            radius: 15
-            border.width: 1
-            border.color: colorWithAlpha(Kirigami.Theme.textColor, 0.1)
-            z: -1  // This puts it behind all other elements
-        }
         property int widthComputed: root.cellSizeWidth * Plasmoid.configuration.numberColumns + Kirigami.Units.gridUnit * 2
 
         width: Math.max(widthComputed + Kirigami.Units.gridUnit * 2, 300)
