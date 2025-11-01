@@ -1,4 +1,4 @@
-# Menu 11 Next - Plasma 6.5
+# Menu 11 Enhanced
 
 A modern, configurable application launcher for KDE Plasma 6 with a grid-based layout.
 
@@ -45,25 +45,35 @@ This fork is updated for Plasma 6.5 compatibility.
 
 ## Installation
 
-### Via kpackagetool6
+### From Release
+
+Download `menu-11-enhanced-v1.0.0.plasmoid` from [Releases](https://github.com/kurojs/menu-11-enhanced/releases) and install:
 
 ```bash
+kpackagetool6 --type=Plasma/Applet --install menu-11-enhanced-v1.0.0.plasmoid
+```
+
+### From Source
+
+```bash
+git clone https://github.com/kurojs/menu-11-enhanced.git
+cd menu-11-enhanced
 kpackagetool6 --type=Plasma/Applet --install .
 ```
 
 ### Manual Installation
 
-Copy to `~/.local/share/plasma/plasmoids/menu.11.next/`
+Copy to `~/.local/share/plasma/plasmoids/menu.11.enhanced/`
 
 ### Update Existing Installation
 
 ```bash
-kpackagetool6 --type=Plasma/Applet --upgrade .
+kpackagetool6 --type=Plasma/Applet --upgrade menu-11-enhanced-v1.0.0.plasmoid
 ```
 
 ## Configuration
 
-Right-click the launcher button and select "Configure Menu 11 Next" to access settings:
+Right-click the launcher button and select "Configure Menu 11 Enhanced" to access settings:
 
 - **Icon**: Customize the launcher button appearance
 - **Apps Icon Size**: Set icon size for application grid
@@ -96,7 +106,7 @@ Right-click the launcher button and select "Configure Menu 11 Next" to access se
 
 - Original: [adhec/OnzeMenuKDE](https://github.com/adhec/OnzeMenuKDE)
 - Fork: [Eisteed/menu-11-next](https://github.com/Eisteed/menu-11-next)
-- Plasma 6.5 Updates: kurojs
+- Enhanced Version: kurojs
 
 ## License
 

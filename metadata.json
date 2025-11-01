@@ -7,15 +7,16 @@
                 "Name": "Eisteed"
             }
         ],
-        "BugReportUrl": "https://github.com/Eisteed/menu-11-next/issues",
+        "BugReportUrl": "https://github.com/kurojs/menu-11-enhanced/issues",
         "Category": "Application Launchers",
-        "Description": "Configurable grid of application icons",
+        "Description": "Enhanced configurable grid application launcher for Plasma 6",
         "EnabledByDefault": true,
         "Icon": "start-here-kde",
-        "Id": "menu.11.next",
+        "Id": "menu.11.enhanced",
         "License": "GPL-2.0+",
-        "Name": "Menu 11 Next",
-        "Website": "https://github.com/Eisteed/menu-11-next"
+        "Name": "Menu 11 Enhanced",
+        "Version": "1.0.0",
+        "Website": "https://github.com/kurojs/menu-11-enhanced"
     },
     "X-Plasma-API-Minimum-Version": "6.0",
     "X-Plasma-Provides": [
