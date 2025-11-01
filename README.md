@@ -2,7 +2,7 @@
 
 A modern, configurable application launcher for KDE Plasma 6 with a grid-based layout.
 
-![Main View](https://i.imgur.com/gD3OzuK.png)
+![Main View](https://i.imgur.com/tWThbOv.png)
 
 ## Features
 
@@ -15,7 +15,7 @@ A modern, configurable application launcher for KDE Plasma 6 with a grid-based l
 - **Recent Documents**: Quick access to recently opened files with file manager integration
 - **Context Menu**: Right-click support for app-specific actions and favorites management
 
-![All Apps](https://i.imgur.com/twZCQqO.png)
+![All Apps](https://i.imgur.com/IboBpjY.png)
 
 ### Customization Options
 
