@@ -7,7 +7,7 @@
                 "Name": "Eisteed"
             }
         ],
-        "BugReportUrl": "https://github.com/kurojs/menu-11-enhanced/issues",
+        "BugReportUrl": "https://github.com/kurojs/Menu-11-Enhanced/issues",
         "Category": "Application Launchers",
         "Description": "Enhanced configurable grid application launcher for Plasma 6",
         "EnabledByDefault": true,
@@ -16,7 +16,7 @@
         "License": "GPL-2.0+",
         "Name": "Menu 11 Enhanced",
         "Version": "1.0.0",
-        "Website": "https://github.com/kurojs/menu-11-enhanced"
+        "Website": "https://github.com/kurojs/Menu-11-Enhanced"
     },
     "X-Plasma-API-Minimum-Version": "6.0",
     "X-Plasma-Provides": [

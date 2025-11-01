@@ -47,7 +47,7 @@ This fork is updated for Plasma 6.5 compatibility.
 
 ### From Release
 
-Download `menu-11-enhanced-v1.0.0.plasmoid` from [Releases](https://github.com/kurojs/menu-11-enhanced/releases) and install:
+Download `menu-11-enhanced-v1.0.0.plasmoid` from [Releases](https://github.com/kurojs/Menu-11-Enhanced/releases) and install:
 
 ```bash
 kpackagetool6 --type=Plasma/Applet --install menu-11-enhanced-v1.0.0.plasmoid
@@ -56,8 +56,8 @@ kpackagetool6 --type=Plasma/Applet --install menu-11-enhanced-v1.0.0.plasmoid
 ### From Source
 
 ```bash
-git clone https://github.com/kurojs/menu-11-enhanced.git
-cd menu-11-enhanced
+git clone https://github.com/kurojs/Menu-11-Enhanced.git
+cd Menu-11-Enhanced
 kpackagetool6 --type=Plasma/Applet --install .
 ```
 
