@@ -1,0 +1,24 @@
+{
+    "KPackageStructure": "Plasma/Applet",
+    "KPlugin": {
+        "Authors": [
+            {
+                 "Email": "hello@eisteed.com",
+                "Name": "Eisteed"
+            }
+        ],
+        "BugReportUrl": "https://github.com/Eisteed/menu-11-next/issues",
+        "Category": "Application Launchers",
+        "Description": "Configurable grid of application icons",
+        "EnabledByDefault": true,
+        "Icon": "start-here-kde",
+        "Id": "menu.11.next",
+        "License": "GPL-2.0+",
+        "Name": "Menu 11 Next",
+        "Website": "https://github.com/Eisteed/menu-11-next"
+    },
+    "X-Plasma-API-Minimum-Version": "6.0",
+    "X-Plasma-Provides": [
+        "org.kde.plasma.launchermenu"
+    ]
+}
