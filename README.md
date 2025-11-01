@@ -45,15 +45,24 @@ This fork is updated for Plasma 6.5 compatibility.
 
 ## Installation
 
-### From Release
+### Method 1: From Release (Recommended)
 
-Download `menu-11-enhanced-v1.0.0.plasmoid` from [Releases](https://github.com/kurojs/Menu-11-Enhanced/releases) and install:
+Download `menu.11.enhanced-v1.0.0.plasmoid` from [Releases](https://github.com/kurojs/Menu-11-Enhanced/releases) and install:
 
 ```bash
-kpackagetool6 --type=Plasma/Applet --install menu-11-enhanced-v1.0.0.plasmoid
+kpackagetool6 --type=Plasma/Applet --install menu.11.enhanced-v1.0.0.plasmoid
 ```
 
-### From Source
+### Method 2: Via Plasma GUI
+
+1. Right-click on the desktop or panel
+2. Select "Enter Edit Mode"
+3. Click "Add Widgets..."
+4. Click "Get New Widgets" → "Install Widget From Local File..."
+5. Select the downloaded `menu.11.enhanced-v1.0.0.plasmoid` file
+6. Click "Install"
+
+### Method 3: From Source
 
 ```bash
 git clone https://github.com/kurojs/Menu-11-Enhanced.git
@@ -61,14 +70,14 @@ cd Menu-11-Enhanced
 kpackagetool6 --type=Plasma/Applet --install .
 ```
 
-### Manual Installation
+### Method 4: Manual Installation
 
 Copy to `~/.local/share/plasma/plasmoids/menu.11.enhanced/`
 
 ### Update Existing Installation
 
 ```bash
-kpackagetool6 --type=Plasma/Applet --upgrade menu-11-enhanced-v1.0.0.plasmoid
+kpackagetool6 --type=Plasma/Applet --upgrade menu.11.enhanced-v1.0.0.plasmoid
 ```
 
 ## Configuration
