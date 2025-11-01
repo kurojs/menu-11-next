@@ -119,7 +119,7 @@ FocusScope {
                                if (item) {
                                    if (kicker.dragSource.parent === gridView.contentItem) {
                                        if (item !== kicker.dragSource) {
-                                           item.GridView.view.model.moveRow(dragSource.itemIndex, item.itemIndex);
+                                           item.GridView.view.model.moveRow(kicker.dragSource.itemIndex, item.itemIndex);
                                        }
                                    } else if (kicker.dragSource.GridView.view.model.favoritesModel === itemGrid.model
                                               && !itemGrid.model.isFavorite(kicker.dragSource.favoriteId)) {
