@@ -23,7 +23,7 @@ import QtQuick.Layouts 1.15
 import QtQuick.Controls 2.15
 import org.kde.plasma.plasmoid
 import org.kde.plasma.core as PlasmaCore
-import org.kde.plasma.components as PC3
+import org.kde.plasma.components 3.0 as PC3
 import org.kde.plasma.extras as PlasmaExtras
 import org.kde.plasma.private.kicker 0.1 as Kicker
 import org.kde.kquickcontrolsaddons
@@ -411,10 +411,10 @@ PlasmaCore.Dialog {
 
             // PAGE 1
             Column {
-                width: rootItem.widthComputed
+            width: view.width // Ensure Column fills SwipeView
                 height: view.height
                 clip: true
-                spacing: Kirigami.Units.largeSpacing * 2
+                spacing: Kirigami.Units.largeSpacing
                 function tryActivate(row, col) {
                     globalFavoritesGrid.tryActivate(row, col);
                 }
@@ -424,7 +424,7 @@ PlasmaCore.Dialog {
                     width: parent.width
                     height: butttonActionAllApps.implicitHeight
                     Kirigami.Icon {
-                        source: 'favorite'
+                        source: 'bookmarks'
                         implicitHeight: Kirigami.Units.iconSizes.smallMedium
                         implicitWidth: Kirigami.Units.iconSizes.smallMedium
                     }
@@ -441,12 +441,10 @@ PlasmaCore.Dialog {
                         Layout.fillWidth: true
                     }
 
-                    AToolButton {
+                    PC3.ToolButton {
                         id: butttonActionAllApps
-                        flat: false
-                        iconName: "go-next"
+                        icon.name: "go-next"
                         text: i18n("All apps")
-                        buttonHeight: 25
                         onClicked: {
                             view.currentIndex = 1;
                         }
@@ -481,6 +479,7 @@ PlasmaCore.Dialog {
                 }
 
                 RowLayout {
+                    visible: Plasmoid.configuration.showRecentDocuments
                     width: parent.width
                     height: butttonActionAllApps.implicitHeight
 
@@ -502,12 +501,10 @@ PlasmaCore.Dialog {
                         Layout.fillWidth: true
                     }
 
-                    AToolButton {
+                    PC3.ToolButton {
                         id: butttonActionRecentMore
-                        flat: false
-                        iconName: "go-next"
+                        icon.name: "go-next"
                         text: i18n("Show more")
-                        buttonHeight: 25
                         onClicked: {
                             executable.checkDolphin();
                             if (executable.dolphinRunning) {
@@ -523,13 +520,14 @@ PlasmaCore.Dialog {
                 }
 
                 ItemGridView {
+                    visible: Plasmoid.configuration.showRecentDocuments
                     id: documentsGrid
-                    width: rootItem.widthComputed
+                    width: parent.width
                     height: cellHeight * 3
                     itemColumns: 2
                     dragEnabled: true
                     dropEnabled: true
-                    cellWidth: rootItem.widthComputed * 0.48
+                    cellWidth: (width - Kirigami.Units.gridUnit) / 2
                     cellHeight: docsIconSize + Kirigami.Units.largeSpacing * 2
                     iconSize: docsIconSize
                     clip: true
@@ -548,10 +546,10 @@ PlasmaCore.Dialog {
             }
             // PAGE 2
             Column {
-                width: rootItem.widthComputed
+                width: view.width // Ensure Column fills SwipeView
                 height: view.height
                 clip: true
-                spacing: Kirigami.Units.largeSpacing * 2
+                spacing: Kirigami.Units.largeSpacing
                 function tryActivate(row, col) {
                     allAppsGrid.tryActivate(row, col);
                 }
@@ -561,7 +559,7 @@ PlasmaCore.Dialog {
                     height: butttonActionAllApps.implicitHeight
 
                     Kirigami.Icon {
-                        source: 'application-menu'
+                        source: 'view-grid'
                         implicitHeight: Kirigami.Units.iconSizes.smallMedium
                         implicitWidth: Kirigami.Units.iconSizes.smallMedium
                     }
@@ -578,11 +576,9 @@ PlasmaCore.Dialog {
                         Layout.fillWidth: true
                     }
 
-                    AToolButton {
-                        flat: false
-                        iconName: 'go-previous'
+                    PC3.ToolButton {
+                        icon.name: 'go-previous'
                         text: i18n("Pinned")
-                        buttonHeight: 25
                         onClicked: {
                             view.currentIndex = 0;
                         }
@@ -591,12 +587,14 @@ PlasmaCore.Dialog {
 
                 ItemGridView {
                     id: allAppsGrid
-                    width: rootItem.widthComputed
+                    width: parent.width
                     height: Math.floor((view.height - topRow.height - Kirigami.Units.largeSpacing) / cellHeight) * cellHeight
-                    itemColumns: 2
+                    itemColumns: 1
+                    forceListDelegate: true
+                    showDescriptions: Plasmoid.configuration.showDescriptions
                     dragEnabled: false
                     dropEnabled: false
-                    cellWidth: rootItem.widthComputed - Kirigami.Units.gridUnit * 2
+                    cellWidth: width
                     cellHeight: root.iconSize + Kirigami.Units.largeSpacing
                     iconSize: root.iconSize
                     clip: true

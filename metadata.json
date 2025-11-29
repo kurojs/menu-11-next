@@ -1,25 +1,23 @@
 {
-    "KPackageStructure": "Plasma/Applet",
-    "KPlugin": {
-        "Authors": [
-            {
-                 "Email": "hello@eisteed.com",
-                "Name": "Eisteed"
-            }
-        ],
-        "BugReportUrl": "https://github.com/kurojs/Menu-11-Enhanced/issues",
-        "Category": "Application Launchers",
-        "Description": "Enhanced configurable grid application launcher for Plasma 6",
-        "EnabledByDefault": true,
-        "Icon": "start-here-kde",
-        "Id": "menu.11.enhanced",
-        "License": "GPL-2.0+",
-        "Name": "Menu 11 Enhanced",
-        "Version": "1.0.0",
-        "Website": "https://github.com/kurojs/Menu-11-Enhanced"
-    },
-    "X-Plasma-API-Minimum-Version": "6.0",
-    "X-Plasma-Provides": [
-        "org.kde.plasma.launchermenu"
-    ]
+  "KPackageStructure": "Plasma/Applet",
+  "KPlugin": {
+    "Authors": [
+      {
+        "Email": "hello@eisteed.com",
+        "Name": "Eisteed"
+      }
+    ],
+    "BugReportUrl": "https://github.com/kurojs/Menu-11-Enhanced/issues",
+    "Category": "Application Launchers",
+    "Description": "Enhanced configurable grid application launcher for Plasma 6",
+    "EnabledByDefault": true,
+    "Icon": "start-here-kde",
+    "Id": "menu.11.enhanced",
+    "License": "GPL-2.0+",
+    "Name": "Menu 11 Enhanced",
+    "Version": "1.1.0",
+    "Website": "https://github.com/kurojs/Menu-11-Enhanced"
+  },
+  "X-Plasma-API-Minimum-Version": "6.0",
+  "X-Plasma-Provides": ["org.kde.plasma.launchermenu"]
 }

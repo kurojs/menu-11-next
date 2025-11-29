@@ -37,6 +37,9 @@ FocusScope {
     property alias cellHeight: gridView.cellHeight
     property int iconSize
 
+    property bool forceListDelegate: false
+    property bool showDescriptions: true
+
     property var horizontalScrollBarPolicy: PlasmaComponents.ScrollBar.AlwaysOff
     property var verticalScrollBarPolicy: PlasmaComponents.ScrollBar.AlwaysOff
     property bool bypassArrowNav: false
@@ -179,6 +182,7 @@ FocusScope {
                 showLabel: showLabels
                 itemColumns: itemGrid.itemColumns
                 iconSize: itemGrid.iconSize
+                showDescriptions: itemGrid.showDescriptions
             }
         }
         Component{
@@ -255,7 +259,7 @@ FocusScope {
                 keyNavigationWraps: false
                 boundsBehavior: Flickable.StopAtBounds
 
-                delegate: itemColumns == 1 ? aItemGridDelegate :  aItemGridDelegate2
+                delegate: (itemColumns == 1 && !forceListDelegate) ? aItemGridDelegate :  aItemGridDelegate2
                 highlight:  Rectangle { color: Qt.rgba(0.9, 0.9, 0.9, 0.1); radius: 6 }
 
                 highlightFollowsCurrentItem: true

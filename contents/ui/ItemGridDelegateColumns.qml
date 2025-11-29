@@ -52,64 +52,95 @@ Item {
         }
     }
 
+    property bool showDescriptions: true
 
-    Kirigami.Icon {
-        id: icon
-        anchors.verticalCenter: parent.verticalCenter
-        anchors.left: parent.left
+    RowLayout {
+        anchors.fill: parent
         anchors.leftMargin: Kirigami.Units.largeSpacing
+        anchors.rightMargin: Kirigami.Units.largeSpacing
+        spacing: Kirigami.Units.largeSpacing
 
-        width: iconSize
-        height: width
-
-        animated: false
-
-        source: model.decoration
-    }
-
-
-    PlasmaComponents3.Label {
-        id: label
-        visible: item.showLabel
-        anchors {
-            left: icon.right
-            leftMargin: Kirigami.Units.largeSpacing
-            right: itemColumns == 2 ?  parent.right : desc.left
-            rightMargin: Kirigami.Units.largeSpacing
-            verticalCenter: icon.verticalCenter
-
+        Kirigami.Icon {
+            id: icon
+            Layout.preferredWidth: iconSize
+            Layout.preferredHeight: iconSize
+            Layout.alignment: Qt.AlignVCenter
+            source: model.decoration
+            animated: false
         }
-        anchors.verticalCenterOffset: itemColumns == 2 ? -Kirigami.Units.largeSpacing : 0
-        horizontalAlignment: Text.AlignLeft
-        maximumLineCount: 1
-        elide: Text.ElideMiddle
-        //wrapMode: Text.Wrap
-        color: Kirigami.Theme.textColor
-        font.pointSize: Kirigami.Theme.defaultFont.pointSize
-        text: ("name" in model ? model.name : model.display)
-        textFormat: Text.PlainText
-    }
 
-    PlasmaComponents3.Label {
-        id: desc
-        visible: text.length > 0 && text !== model.display
-        anchors {
-                top: itemColumns == 2 ? label.bottom: undefined
-                left: itemColumns == 2 ? icon.right : undefined
-                leftMargin: Kirigami.Units.largeSpacing
-                right: parent.right
-                rightMargin: Kirigami.Units.largeSpacing
-                verticalCenter: itemColumns == 2 ? undefined : icon.verticalCenter
+        Item {
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+
+            // List View Layout (itemColumns == 1)
+            RowLayout {
+                anchors.fill: parent
+                visible: itemColumns == 1
+                spacing: Kirigami.Units.smallSpacing
+
+                PlasmaComponents3.Label {
+                    id: labelList
+                    text: ("name" in model ? model.name : model.display)
+                    // Name takes 65% of space ideally
+                    Layout.fillWidth: true
+                    Layout.preferredWidth: parent.width * 0.65
+                    elide: Text.ElideRight
+                    maximumLineCount: 1
+                    color: Kirigami.Theme.textColor
+                    font.pointSize: Kirigami.Theme.defaultFont.pointSize
+                    horizontalAlignment: Text.AlignLeft
+                }
+
+                PlasmaComponents3.Label {
+                    id: descList
+                    text: ("description" in model ? model.description : "")
+                    visible: item.showDescriptions && text.length > 0 && text !== model.display
+                    // Description takes 35% of space ideally
+                    Layout.fillWidth: true
+                    Layout.preferredWidth: parent.width * 0.35
+                    Layout.minimumWidth: 0
+                    elide: Text.ElideRight
+                    maximumLineCount: 1
+                    color: colorWithAlpha(Kirigami.Theme.textColor, 0.6)
+                    font.pointSize: Kirigami.Theme.defaultFont.pointSize - 1
+                    horizontalAlignment: Text.AlignRight
+                }
+            }
+
+            // Grid View Layout (itemColumns == 2)
+            ColumnLayout {
+                anchors.fill: parent
+                visible: itemColumns == 2
+                spacing: 0
+
+                PlasmaComponents3.Label {
+                    id: labelGrid
+                    text: ("name" in model ? model.name : model.display)
+                    Layout.fillWidth: true
+                    elide: Text.ElideRight
+                    maximumLineCount: 1
+                    color: Kirigami.Theme.textColor
+                    font.pointSize: Kirigami.Theme.defaultFont.pointSize
+                    horizontalAlignment: Text.AlignLeft
+                }
+
+                PlasmaComponents3.Label {
+                    id: descGrid
+                    text: ("description" in model ? model.description : "")
+                    visible: text.length > 0 && text !== model.display
+                    Layout.fillWidth: true
+                    elide: Text.ElideRight
+                    maximumLineCount: 1
+                    color: colorWithAlpha(Kirigami.Theme.textColor, 0.6)
+                    font.pointSize: Kirigami.Theme.defaultFont.pointSize - 1
+                    horizontalAlignment: Text.AlignLeft
+                }
+            }
         }
-        horizontalAlignment: itemColumns == 2 ? Text.AlignLeft : Text.AlignRight
-        maximumLineCount: 1
-        elide: Text.ElideMiddle
-
-        color: colorWithAlpha(Kirigami.Theme.textColor,0.4)
-        font.pointSize: Kirigami.Theme.defaultFont.pointSize - 1
-        text: ("description" in model ? model.description : "")
-        textFormat: Text.PlainText
     }
+
+    property Item currentLabel: itemColumns == 1 ? labelList : labelGrid
 
     PlasmaCore.ToolTipArea {
         id: toolTip
@@ -117,7 +148,7 @@ Item {
         property string text: model.display
 
         anchors.fill: parent
-        active: root.visible && label.truncated
+        active: root.visible && currentLabel.truncated
         mainItem: toolTipDelegate
 
         onContainsMouseChanged: item.GridView.view.itemContainsMouseChanged(containsMouse)

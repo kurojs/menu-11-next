@@ -2,7 +2,7 @@
 
 A modern, configurable application launcher for KDE Plasma 6 with a grid-based layout.
 
-![Main View](https://i.imgur.com/tWThbOv.png)
+![Main View](https://i.imgur.com/BE3HXJe.png)
 
 ## Features
 
@@ -15,8 +15,6 @@ A modern, configurable application launcher for KDE Plasma 6 with a grid-based l
 - **Recent Documents**: Quick access to recently opened files with file manager integration
 - **Context Menu**: Right-click support for app-specific actions and favorites management
 
-![All Apps](https://i.imgur.com/IboBpjY.png)
-
 ### Customization Options
 
 - **Icon Sizes**: Adjustable icon sizes for both applications and documents (Small, Medium, Large, Huge)
@@ -24,6 +22,7 @@ A modern, configurable application launcher for KDE Plasma 6 with a grid-based l
 - **Custom Button Icon**: Use custom icons or images for the launcher button
 - **Menu Position**: Choose between default, center, or center-bottom positioning
 - **Favorites**: Pin frequently used applications for quick access
+- **Toggle Features**: Show/Hide "Recent Documents" and "Application Descriptions"
 
 ### User Interface
 
@@ -33,12 +32,19 @@ A modern, configurable application launcher for KDE Plasma 6 with a grid-based l
 - **User Profile**: Display user avatar and full name with direct access to user settings
 - **Keyboard Navigation**: Full keyboard support for efficient navigation
 
-### Integration
+## Gallery
 
-- **System Settings**: Direct integration with KDE System Settings and user configuration
-- **File Manager**: Opens directories and recent documents in default file manager
-- **Activity Support**: Compatible with KDE Activities and virtual desktops
-- **Localization**: Multi-language support (English, French, Korean, Dutch, Polish, Portuguese, Russian, Turkish)
+### All Apps View
+![All Apps](https://i.imgur.com/7OkkCWC.png)
+
+### Settings
+![Settings](https://i.imgur.com/DxEhpjf.png)
+
+### Minimalist Mode (No Recent Documents)
+![No Recent Docs](https://i.imgur.com/YZ5RLBE.png)
+
+### Compact List (No Descriptions)
+![No Descriptions](https://i.imgur.com/ZIFUD4S.png)
 
 ## Compatibility
 
@@ -48,26 +54,20 @@ This fork is updated for Plasma 6.5 compatibility.
 
 ### Method 1: Via Plasma GUI (Recommended)
 
-1. Download `menu.11.enhanced-v1.0.0.plasmoid` from [Releases](https://github.com/kurojs/Menu-11-Enhanced/releases)
-2. Right-click on the desktop or panel
-3. Select "Enter Edit Mode"
-4. Click "Add Widgets..."
-5. Click "Get New Widgets" → "Install Widget From Local File..."
-6. Select the downloaded `menu.11.enhanced-v1.0.0.plasmoid` file
-7. Click "Install"
+1. Download `menu.11.enhanced-v1.1.0.plasmoid` from [Releases](https://github.com/kurojs/Menu-11-Enhanced/releases).
+2. Right-click on the desktop or panel.
+3. Select "Enter Edit Mode".
+4. Click "Add Widgets...".
+5. Click "Get New Widgets" → "Install Widget From Local File...".
+6. Select the downloaded `.plasmoid` file.
+7. Click "Install".
 
-### Method 2: Command Line Installation
+### Method 2: Command Line
 
-Download `menu.11.enhanced-v1.0.0.plasmoid` from [Releases](https://github.com/kurojs/Menu-11-Enhanced/releases) and install:
-
-```bash
-kpackagetool6 --type=Plasma/Applet --install menu.11.enhanced-v1.0.0.plasmoid
-```
-
-**Note:** If the widget doesn't appear after installation, restart Plasma Shell:
+Download `menu.11.enhanced-v1.1.0.plasmoid` and run:
 
 ```bash
-kquitapp6 plasmashell && kstart plasmashell
+kpackagetool6 --type=Plasma/Applet --install menu.11.enhanced-v1.1.0.plasmoid
 ```
 
 ### Method 3: From Source
@@ -78,14 +78,10 @@ cd Menu-11-Enhanced
 kpackagetool6 --type=Plasma/Applet --install .
 ```
 
-### Method 4: Manual Installation
-
-Copy to `~/.local/share/plasma/plasmoids/menu.11.enhanced/`
-
 ### Update Existing Installation
 
 ```bash
-kpackagetool6 --type=Plasma/Applet --upgrade menu.11.enhanced-v1.0.0.plasmoid
+kpackagetool6 --type=Plasma/Applet --upgrade menu.11.enhanced-v1.1.0.plasmoid
 ```
 
 ## Configuration
@@ -98,6 +94,8 @@ Right-click the launcher button and select "Configure Menu 11 Enhanced" to acces
 - **Menu Position**: Choose where the menu appears
 - **Number of Columns**: Adjust grid width (3-15 columns)
 - **Number of Rows**: Adjust grid height (1-15 rows)
+- **Show Recent Documents**: Toggle visibility of the recent documents section
+- **Show Descriptions**: Toggle visibility of application descriptions in the list view
 
 ## Usage
 

@@ -56,6 +56,8 @@ KCM.SimpleKCM {
     property alias cfg_appsIconSize: appsIconSize.currentIndex
     property alias cfg_docsIconSize: docsIconSize.currentIndex
     property alias cfg_displayPosition: displayPosition.currentIndex
+    property alias cfg_showRecentDocuments: showRecentDocuments.checked
+    property alias cfg_showDescriptions: showDescriptions.checked
 
     Kirigami.FormLayout {
         anchors.left: parent.left
@@ -175,6 +177,18 @@ KCM.SimpleKCM {
             Kirigami.FormData.label: i18n("Docs icon size:")
             Layout.fillWidth: true
             model: [i18n("Small"),i18n("Medium"),i18n("Large"), i18n("Huge")]
+        }
+
+        CheckBox {
+            id: showRecentDocuments
+            Kirigami.FormData.label: i18n("Show recent documents:")
+            text: i18n("Enable")
+        }
+
+        CheckBox {
+            id: showDescriptions
+            Kirigami.FormData.label: i18n("Show descriptions:")
+            text: i18n("Enable")
         }
 
 

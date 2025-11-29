@@ -91,5 +91,13 @@
     <entry name="viewUser" type="Bool">
     <default>true</default>
     </entry>
+      <entry name="showRecentDocuments" type="Bool">
+        <label>Show recent documents</label>
+        <default>true</default>
+      </entry>
+      <entry name="showDescriptions" type="Bool">
+        <label>Show application descriptions</label>
+        <default>true</default>
+      </entry>
   </group>
 </kcfg>
