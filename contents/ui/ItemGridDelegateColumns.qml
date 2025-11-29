@@ -31,6 +31,7 @@ Item {
                                   || (("hasActionList" in model) && (model.hasActionList === true)))
 
     property int itemColumns
+    property bool handleTriggerManually: false
     Accessible.role: Accessible.MenuItem
     Accessible.name: model.display
 
@@ -161,7 +162,7 @@ Item {
                         } else if ((event.key === Qt.Key_Enter || event.key === Qt.Key_Return)) {
                             event.accepted = true;
 
-                            if ("trigger" in GridView.view.model) {
+                            if (!handleTriggerManually && "trigger" in GridView.view.model) {
                                 GridView.view.model.trigger(index, "", null);
                                 root.toggle();
                             }

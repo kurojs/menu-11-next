@@ -43,6 +43,8 @@ FocusScope {
     property var horizontalScrollBarPolicy: PlasmaComponents.ScrollBar.AlwaysOff
     property var verticalScrollBarPolicy: PlasmaComponents.ScrollBar.AlwaysOff
     property bool bypassArrowNav: false
+    property bool handleTriggerManually: false
+
     onDropEnabledChanged: {
         if (!dropEnabled && "dropPlaceHolderIndex" in model) {
             model.dropPlaceHolderIndex = -1;
@@ -183,6 +185,7 @@ FocusScope {
                 itemColumns: itemGrid.itemColumns
                 iconSize: itemGrid.iconSize
                 showDescriptions: itemGrid.showDescriptions
+                handleTriggerManually: itemGrid.handleTriggerManually
             }
         }
         Component{
@@ -191,6 +194,7 @@ FocusScope {
                 showLabel: itemGrid.showLabels
                 itemColumns: itemGrid.itemColumns
                 iconSize: itemGrid.iconSize
+                handleTriggerManually: itemGrid.handleTriggerManually
             }
         }
 
@@ -427,7 +431,7 @@ FocusScope {
 
                             if (!dragHelper.dragging) {
                                 if (pressedItem) {
-                                    if ("trigger" in gridView.model) {
+                                    if (!itemGrid.handleTriggerManually && "trigger" in gridView.model) {
                                         gridView.model.trigger(pressedItem.itemIndex, "", null);
                                         root.toggle();
                                     }

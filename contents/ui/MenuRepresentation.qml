@@ -531,6 +531,13 @@ PlasmaCore.Dialog {
                     cellHeight: docsIconSize + Kirigami.Units.largeSpacing * 2
                     iconSize: docsIconSize
                     clip: true
+                    handleTriggerManually: true
+                    onItemActivated: (index, actionId, argument) => {
+                         var url = documentsGrid.currentItem.url.toString();
+                         console.log("Opening URL:", url);
+                         executable.exec("xdg-open '" + url.replace(/'/g, "'\\''") + "'");
+                         root.toggle();
+                    }
                     onKeyNavUp: {
                         globalFavoritesGrid.tryActivate(0, 0);
                         documentsGrid.focus = false;
