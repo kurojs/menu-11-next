@@ -413,7 +413,6 @@ PlasmaCore.Dialog {
             Column {
             width: view.width // Ensure Column fills SwipeView
                 height: view.height
-                clip: true
                 spacing: Kirigami.Units.largeSpacing
                 function tryActivate(row, col) {
                     globalFavoritesGrid.tryActivate(row, col);
@@ -454,7 +453,13 @@ PlasmaCore.Dialog {
                 ItemGridView {
                     id: globalFavoritesGrid
                     width: parent.width
-                    height: root.cellSizeHeight * Plasmoid.configuration.numberRows
+                    height: {
+                        if (Plasmoid.configuration.showRecentDocuments) {
+                            return root.cellSizeHeight * Plasmoid.configuration.numberRows;
+                        } else {
+                            return view.height - topRow.height - Kirigami.Units.largeSpacing - Kirigami.Units.gridUnit;
+                        }
+                    }
                     itemColumns: 1
                     dragEnabled: true
                     dropEnabled: true
@@ -467,7 +472,9 @@ PlasmaCore.Dialog {
                     }
                     onKeyNavDown: {
                         globalFavoritesGrid.focus = false;
-                        documentsGrid.tryActivate(0, 0);
+                        if (Plasmoid.configuration.showRecentDocuments) {
+                            documentsGrid.tryActivate(0, 0);
+                        }
                     }
                     Keys.onPressed: event => {
                         if (event.key === Qt.Key_Tab) {
@@ -555,13 +562,13 @@ PlasmaCore.Dialog {
             Column {
                 width: view.width // Ensure Column fills SwipeView
                 height: view.height
-                clip: true
                 spacing: Kirigami.Units.largeSpacing
                 function tryActivate(row, col) {
                     allAppsGrid.tryActivate(row, col);
                 }
 
                 RowLayout {
+                    id: allAppsTopRow
                     width: parent.width
                     height: butttonActionAllApps.implicitHeight
 
@@ -595,7 +602,7 @@ PlasmaCore.Dialog {
                 ItemGridView {
                     id: allAppsGrid
                     width: parent.width
-                    height: Math.floor((view.height - topRow.height - Kirigami.Units.largeSpacing) / cellHeight) * cellHeight
+                    height: view.height - allAppsTopRow.height - Kirigami.Units.largeSpacing - Kirigami.Units.gridUnit
                     itemColumns: 1
                     forceListDelegate: true
                     showDescriptions: Plasmoid.configuration.showDescriptions
@@ -604,7 +611,6 @@ PlasmaCore.Dialog {
                     cellWidth: width
                     cellHeight: root.iconSize + Kirigami.Units.largeSpacing
                     iconSize: root.iconSize
-                    clip: true
                     onKeyNavUp: {
                         searchField.focus = true;
                         allAppsGrid.focus = false;
